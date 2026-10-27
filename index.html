@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Darkroom — Image Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="masthead__title">
+      <span class="roll">ROLL 04</span>
+      <h1>Darkroom</h1>
+    </div>
+    <p class="masthead__note">
+      Twenty-four frames, four subjects. Click any frame to view it larger and use the arrow keys to move between photos.
+    </p>
+  </header>
+
+  <nav class="filters" aria-label="Filter photos">
+    <button class="filter is-active" data-filter="all">All <span class="count"></span></button>
+    <button class="filter" data-filter="landscape">Landscapes <span class="count"></span></button>
+    <button class="filter" data-filter="wildlife">Wildlife <span class="count"></span></button>
+    <button class="filter" data-filter="city">City <span class="count"></span></button>
+    <button class="filter" data-filter="food">Food &amp; Drink <span class="count"></span></button>
+  </nav>
+
+  <main>
+    <ul class="grid" id="grid"></ul>
+  </main>
+
+  <footer class="foot">
+    <p>Photos via Unsplash / Lorem Picsum. Credits are shown in the viewer.</p>
+    <p>CodeAlpha Frontend Internship — Task 1</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <div class="lightbox__bar">
+      <span class="lightbox__frame" id="lbFrame">01 / 24</span>
+      <div class="lightbox__actions">
+        <button class="icon-btn" id="lbPlay" aria-label="Start slideshow" title="Slideshow (space)">
+          <svg viewBox="0 0 24 24" class="i-play"><path d="M8 5v14l11-7z"/></svg>
+          <svg viewBox="0 0 24 24" class="i-pause"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+        </button>
+        <button class="icon-btn" id="lbClose" aria-label="Close viewer" title="Close (Esc)">
+          <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke-width="2" stroke="currentColor" fill="none"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="lightbox__stage" id="lbStage">
+      <button class="nav nav--prev" id="lbPrev" aria-label="Previous photo">
+        <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" stroke-width="2" stroke="currentColor" fill="none"/></svg>
+      </button>
+      <figure class="lightbox__figure">
+        <img id="lbImg" alt="">
+        <div class="lightbox__progress" id="lbProgress"></div>
+      </figure>
+      <button class="nav nav--next" id="lbNext" aria-label="Next photo">
+        <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="2" stroke="currentColor" fill="none"/></svg>
+      </button>
+    </div>
+
+    <div class="lightbox__caption">
+      <h2 id="lbTitle"></h2>
+      <p id="lbMeta"></p>
+    </div>
+
+    <ol class="strip" id="lbStrip"></ol>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
